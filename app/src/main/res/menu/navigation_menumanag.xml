@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_home" android:title="Home" android:icon="@drawable/ic_home"/>
+    <item android:id="@+id/nav_add" android:title="Add Book" android:icon="@drawable/ic_add"/>
+    <item android:id="@+id/nav_updel" android:title="Update and Delete" android:icon="@drawable/ic_updel"/>
+    <item android:id="@+id/nav_myaccount" android:title="My Account" android:icon="@drawable/ic_account"/>
+    <item android:id="@+id/nav_logout" android:title="Log Out" android:icon="@drawable/ic_logout"/>
+</menu>

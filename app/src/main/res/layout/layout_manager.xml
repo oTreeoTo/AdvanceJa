@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_margin="5dp"
+    android:elevation="3dp"
+    card_view:cardBackgroundColor="#500c0c0c"
+    card_view:cardCornerRadius="4dp"
+    card_view:contentPadding="4dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="224dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btnupdate"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/no3"
+            android:layout_toRightOf="@+id/no3"
+            android:backgroundTint="#008b27"
+            android:drawableLeft="@drawable/ic_update" />
+
+        <Button
+            android:id="@+id/btndelete"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#9f0000"
+            android:drawableLeft="@drawable/ic_del"
+            android:layout_alignBottom="@+id/btnupdate"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/btnupdate"
+            android:layout_toRightOf="@+id/written"
+            android:layout_toEndOf="@+id/written" />
+
+        <ImageView
+            android:id="@+id/img_book"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/book1" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="13dp"
+            android:layout_toEndOf="@+id/img_book"
+            android:layout_toRightOf="@+id/img_book"
+            android:text="@string/Book1"
+            android:textColor="@color/colortext"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_toEndOf="@+id/img_book"
+            android:layout_toRightOf="@+id/img_book"
+            android:text="หนังสือของผม"
+            android:textColor="@color/colortext"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/id"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="11dp"
+            android:layout_toEndOf="@+id/img_book"
+            android:layout_toRightOf="@+id/img_book"
+            android:text="@string/detailbook"
+            android:textColor="@color/colortext"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/img_book"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="id_book" />
+
+        <TextView
+            android:id="@+id/No"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/id"
+            android:layout_alignBottom="@+id/id"
+            android:layout_toLeftOf="@+id/id"
+            android:layout_toStartOf="@+id/id"
+            android:text="No." />
+
+        <TextView
+            android:id="@+id/no3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/No"
+            android:layout_alignBottom="@+id/No"
+            android:layout_toEndOf="@+id/img_book"
+            android:layout_toRightOf="@+id/img_book"
+            android:text="ผู้แต่ง : " />
+
+        <TextView
+            android:id="@+id/written"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/img_book"
+            android:layout_toEndOf="@+id/no3"
+            android:layout_toRightOf="@+id/no3"
+            android:text="TextWritten" />
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>
