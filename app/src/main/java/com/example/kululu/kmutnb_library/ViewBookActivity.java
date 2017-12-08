@@ -1,6 +1,7 @@
 package com.example.kululu.kmutnb_library;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,60 +24,37 @@ import java.util.Map;
 
 public class ViewBookActivity extends AppCompatActivity {
     EditText book_name, book_decs, book_written, book_type ;
-    TextView tv;
-    String url = "http://10.0.2.2/Android/ViewBook.php";
+
+
+
     private static final String TAG = "LogServer" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_book);
+        setContentView(R.layout.layout_detailbook);
+        TextView title = (TextView)findViewById(R.id.title);
+        TextView desc = (TextView)findViewById(R.id.desc);
+        TextView author = (TextView)findViewById(R.id.author);
+        TextView type = (TextView)findViewById(R.id.type);
 
-    }
+        Intent port_from_main =  getIntent();
+        int recID_book = port_from_main.getIntExtra("recID", -1);
+        String book_name = port_from_main.getStringExtra("book_name");
+        title.setText(book_name);
 
-    private void requestRegister(final String bookName, final String bookDecs, final String bookType, final String bookWritten){
+        String book_desc = port_from_main.getStringExtra("book_desc");
+        desc.setText(book_desc);
 
-        final ProgressDialog pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Loading..");
-        pDialog.show();
-        StringRequest stringRequest = new StringRequest(Request.Method.GET,url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
+        String book_written = port_from_main.getStringExtra("book_written");
+        author.setText(book_written);
 
-                try {
-                    JSONObject result = new JSONObject(response);
-                    int returnCode = result.getInt("code");
-                    String returnMsg = result.getString("message");
-                    Log.d(TAG, String.valueOf(result));
-                    tv.setText(returnMsg);
+        String book_type = port_from_main.getStringExtra("book_type");
+        type.setText(book_type);
 
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                pDialog.hide();
-            }
-        },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        tv.setText("onErrorResponse():"+
-                                error.getMessage());
-                    }
-                })
-        {
-            @Override
-            protected Map<String, String> getParams(){
-                Map<String, String> params = new HashMap<String, String>();
-                params.put("book_name",bookName);
-                params.put("book_decs",bookDecs);
-                params.put("book_written",bookWritten);
-                params.put("book_type",bookType);
-                return params;
-            }
-        };
+        Log.d(TAG, "onCreate: "+ recID_book);
 
-        RequestQueue queue = Volley.newRequestQueue(this);
-        queue.add(stringRequest);
+
     }
 }

@@ -20,7 +20,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_menu_camera"
+        android:icon="@drawable/logo"
         android:label=""
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -45,20 +45,21 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".CreateBookActivity">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity" />
+        <!--<activity android:name=".RegisterActivity" />-->
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
         <!--<activity android:name=".CreateBookActivity" />-->
         <activity android:name=".ViewBookActivity" />
         <!--<activity android:name=".UpdateBookActivity"></activity>-->
+
     </application>
 
 </manifest>

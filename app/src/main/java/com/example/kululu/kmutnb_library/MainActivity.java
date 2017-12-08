@@ -99,18 +99,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void ViewBook(){
-        String url = "http://10.60.6.165/Android/viewBookAll.php";
+        String url = "http://192.168.2.101/Android/viewBookAll.php";
         final ProgressDialog pDialog = new ProgressDialog(this);
         pDialog.setMessage("Loading..");
         pDialog.show();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET,url, new Response.Listener<String>() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Gson gson = new Gson();
-
+                Log.d(TAG, "onResponse:" + response);
                 JSONObject jsonData = null ;
-
 
                     try {
                         JSONArray result = new JSONArray(response);
@@ -146,7 +145,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         {
             @Override
             protected Map<String, String> getParams(){
-                String value = null;
+                String value = "0";
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("book_detail_search",value);
                 return params;
@@ -165,8 +164,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         int id = datas.get(i).getId();
+        String book_name = datas.get(i).getBook_name();
+        String book_desc = datas.get(i).getBook_desc();
+        String book_written = datas.get(i).getBook_written();
+        String book_type = datas.get(i).getBook_type();
+
         Intent changeToDetailBook = new Intent(this, ViewBookActivity.class);
         changeToDetailBook.putExtra("recID",id);
+        changeToDetailBook.putExtra("book_name",book_name);
+        changeToDetailBook.putExtra("book_desc",book_desc);
+        changeToDetailBook.putExtra("book_written",book_written);
+        changeToDetailBook.putExtra("book_type",book_type);
         startActivity(changeToDetailBook);
     }
 

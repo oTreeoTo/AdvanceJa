@@ -5,15 +5,13 @@
     <string name="register">New User? Register here</string>
     <string name="register1">Register</string>
     <string name="Book1">สมองทองคำ</string>
-    <string name="detailbook">สมองทองคำ ลายแทงสู่ขุมทรัพย์แห่งความสำเร็จ จากผู้เขียน "สมองเศรษฐี" หนังสือขายดีตลอดกาล</string>
+    <string name="detailbook2">"สมองทองคำ" คือลายแทงสู่ขุมทรัพย์แห่งความสำเร็จ หนังสือฮาวทูที่มุ่งเน้นไปที่การทำให้คุณประสบควาสำเร็จอย่างยั่งยืน ยิ่งใหญ่ และเป็นตัวของตัวเองมากที่สุด แม้จะดูเกี่ยวข้องกับหนังสือเล่มก่อนหน้าคือ "สมองเศรษฐี" หนังสือ Bestseller ตลอดกาลของขุนเขา แต่ขอย้ำว่าหนังสือทั้งสองเล่มเป็นหนังสือที่อ่านจบได้อย่างสมบูรณ์ในตัวของมันเอง ไม่ได้เป็นภาคต่อเหมือนนิยาย ยกเว้นบทสุดท้ายของสมองทองคำ ที่เป็นการสร้างโมเดล 3 H ซึ่งต่อยอดจากหนังสือสมองเศรษฐีเล็กน้อย แต่ก็ไม่จำเป็นว่าคุณต้องเคยอ่านสมองเศรษฐีมาก่อน จึงจะเข้าใจและนำไปใช้ได้ </string>
+    <string name="detailbook">ผลลายแทงสู่ขุมทรัพย์แห่งความสำเร็จ จากผู้เขียน "สมองเศรษฐี" หนังสือขายดีตลอดกาล</string>
+    <string name="author">ผู้แต่ง:</string>
+    <string name="status">สถานะ:</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
-    <!--activity-->
-    <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_login">LoginActivity</string>
-    <string name="title_activity_register">RegisterActivity</string>
-    <string name="title_activity_update_book">Update_Book_Activity</string>
-
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
