@@ -78,9 +78,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         ViewBook();
 
-        // TODO : switch to live Batch Api Key before shipping
-        Batch.setConfig(new Config("DEV59FF2879A522785ED8BC2972054")); // devloppement
-
     }
     @Override
     protected void onStop() {
@@ -99,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void ViewBook(){
-        String url = "http://192.168.2.101/Android/viewBookAll.php";
+        String url = "http://"+getResources().getString(R.string.webserver)+"/Android/viewBookAll.php";
         final ProgressDialog pDialog = new ProgressDialog(this);
         pDialog.setMessage("Loading..");
         pDialog.show();
@@ -168,6 +165,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         String book_desc = datas.get(i).getBook_desc();
         String book_written = datas.get(i).getBook_written();
         String book_type = datas.get(i).getBook_type();
+        String pic = datas.get(i).getBook_img();
 
         Intent changeToDetailBook = new Intent(this, ViewBookActivity.class);
         changeToDetailBook.putExtra("recID",id);
@@ -175,7 +173,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         changeToDetailBook.putExtra("book_desc",book_desc);
         changeToDetailBook.putExtra("book_written",book_written);
         changeToDetailBook.putExtra("book_type",book_type);
+        changeToDetailBook.putExtra("pic",pic);
         startActivity(changeToDetailBook);
+        finish();
+
     }
 
     @Override
@@ -203,12 +204,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if (id == R.id.nav_home) {
             Intent home = new Intent(this, MainActivity.class);
             startActivity(home);
+            finish();
         } else if (id == R.id.nav_login) {
             Intent login = new Intent(this, LoginActivity.class);
             startActivity(login);
+            finish();
         } else if (id == R.id.nav_reg) {
             Intent register = new Intent(this, RegisterActivity.class);
             startActivity(register);
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);

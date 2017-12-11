@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -18,14 +19,12 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.batch.android.json.JSONException;
 import com.batch.android.json.JSONObject;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ViewBookActivity extends AppCompatActivity {
-    EditText book_name, book_decs, book_written, book_type ;
-
-
 
     private static final String TAG = "LogServer" ;
 
@@ -37,6 +36,7 @@ public class ViewBookActivity extends AppCompatActivity {
         TextView desc = (TextView)findViewById(R.id.desc);
         TextView author = (TextView)findViewById(R.id.author);
         TextView type = (TextView)findViewById(R.id.type);
+        ImageView book_img = (ImageView)findViewById(R.id.img_book);
 
         Intent port_from_main =  getIntent();
         int recID_book = port_from_main.getIntExtra("recID", -1);
@@ -52,8 +52,17 @@ public class ViewBookActivity extends AppCompatActivity {
         String book_type = port_from_main.getStringExtra("book_type");
         type.setText(book_type);
 
+        String pic = port_from_main.getStringExtra("pic");
 
-        Log.d(TAG, "onCreate: "+ recID_book);
+        String imgUrl = "http://"+ getResources().getString(R.string.webserver)+"/Android/Book_Pic/"+pic ;
+
+        Picasso.with(this)
+                .load(imgUrl)
+                .placeholder(R.mipmap.ic_launcher)
+                .fit()
+                .error(R.drawable.blankbook)
+                .into(book_img);
+
 
 
     }

@@ -29,11 +29,12 @@ import java.util.Objects;
  * Created by Kululu on 11/12/2017.
  */
 
+
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LogServer" ;
     EditText UsernameEt, PasswordEt;
     TextView tv;
-    String url = "http://10.60.6.165/Android/login.php";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,27 +63,35 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void requestSignIn(final String user, final String password){
-
+        String url = "http://"+getResources().getString(R.string.webserver)+"/Android/login.php";
         final ProgressDialog pDialog = new ProgressDialog(this);
         pDialog.setMessage("Loading..");
         pDialog.show();
         StringRequest stringRequest = new StringRequest(Request.Method.POST,url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
+                Log.d(TAG, "onResponse: "+ response);
                 try {
                     JSONObject result = new JSONObject(response);
                     int returnCode = result.getInt("code");
                     String returnMsg = result.getString("message");
                     String returnType = result.getString("type");
+                    String returnName = result.getString("name");
+                    String returnEmail = result.getString("email");
 
                     if (Objects.equals(returnType, "student") && returnCode == 1) {
-                        Intent sendHomeStudent = new Intent(getBaseContext(), MainActivity.class);
+                        Intent sendHomeStudent = new Intent(getBaseContext(), StudentActivity.class);
+                        sendHomeStudent.putExtra("name",returnName);
+                        sendHomeStudent.putExtra("email",returnEmail);
                         startActivity(sendHomeStudent);
+                        finish();
                     } else if (Objects.equals(returnType, "Manager") && returnCode == 1 ) {
                         Toast.makeText(getBaseContext(),returnMsg,Toast.LENGTH_SHORT).show();
-                        Intent sendHomeManager = new Intent(getBaseContext(), MainActivity.class);
+                        Intent sendHomeManager = new Intent(getBaseContext(), ManagerActivity.class);
+                        sendHomeManager.putExtra("name",returnName);
+                        sendHomeManager.putExtra("email",returnEmail);
                         startActivity(sendHomeManager);
+                        finish();
                     } else {
                         Log.d(TAG, String.valueOf(result));
                         Toast.makeText(getBaseContext(),returnMsg,Toast.LENGTH_SHORT).show();
@@ -115,4 +124,5 @@ public class LoginActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(stringRequest);
     }
+
 }

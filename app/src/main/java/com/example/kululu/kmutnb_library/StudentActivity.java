@@ -38,7 +38,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ManagerActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, NavigationView.OnNavigationItemSelectedListener {
+public class StudentActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawerlayout;
     private ActionBarDrawerToggle mToggle;
     private RecyclerView recyclerView;
@@ -53,10 +53,11 @@ public class ManagerActivity extends AppCompatActivity implements AdapterView.On
     private DrawerLayout mDrawerLayout;
 
     String name,email;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manager);
+        setContentView(R.layout.activity_student);
 
         //GetPutExtra From LoginActivity
         Intent port_from_main =  getIntent();
@@ -66,8 +67,8 @@ public class ManagerActivity extends AppCompatActivity implements AdapterView.On
 
         //set TextView for setValue from LogIn
         View header = ((NavigationView)findViewById(R.id.navbar)).getHeaderView(0);
-        ((TextView) header.findViewById(R.id.name_manager)).setText(name);
-        ((TextView) header.findViewById(R.id.email_name)).setText(email);
+        ((TextView) header.findViewById(R.id.nameStudent)).setText(name);
+        ((TextView) header.findViewById(R.id.emailStudent)).setText(email);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -173,15 +174,13 @@ public class ManagerActivity extends AppCompatActivity implements AdapterView.On
         String book_desc = datas.get(i).getBook_desc();
         String book_written = datas.get(i).getBook_written();
         String book_type = datas.get(i).getBook_type();
-        String pic = datas.get(i).getBook_img();
 
-        Intent changeToDetailBook = new Intent(this, ManageActivity.class);
+        Intent changeToDetailBook = new Intent(this, ViewBookActivity.class);
         changeToDetailBook.putExtra("recID",id);
         changeToDetailBook.putExtra("book_name",book_name);
         changeToDetailBook.putExtra("book_desc",book_desc);
         changeToDetailBook.putExtra("book_written",book_written);
         changeToDetailBook.putExtra("book_type",book_type);
-        changeToDetailBook.putExtra("pic",pic);
         startActivity(changeToDetailBook);
         finish();
     }
@@ -209,25 +208,22 @@ public class ManagerActivity extends AppCompatActivity implements AdapterView.On
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            Intent home = new Intent(this, ManagerActivity.class);
+            Intent home = new Intent(this, StudentActivity.class);
             startActivity(home);
             finish();
-        } else if (id == R.id.nav_add) {
-            Intent create = new Intent(this, CreateBookActivity.class);
-            startActivity(create);
-            finish();
-        } else if (id == R.id.nav_updel) {
-            Intent update = new Intent(this, UpdateBookActivity.class);
-            startActivity(update);
+        } else if (id == R.id.nav_mylibrary) {
+            Intent login = new Intent(this, CreateBookActivity.class);
+            startActivity(login);
             finish();
         } else if (id == R.id.nav_myaccount) {
             Intent myaccount = new Intent(this, MyAccountActivity.class);
             myaccount.putExtra("name",name);
             myaccount.putExtra("email",email);
             startActivity(myaccount);
+            finish();
         } else if (id == R.id.nav_logout) {
-            Intent register = new Intent(this, MainActivity.class);
-            startActivity(register);
+            Intent logout = new Intent(this, MainActivity.class);
+            startActivity(logout);
             finish();
         }
 

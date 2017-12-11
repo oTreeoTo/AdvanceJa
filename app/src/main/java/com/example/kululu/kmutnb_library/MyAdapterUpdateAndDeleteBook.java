@@ -15,7 +15,7 @@ public class MyAdapterUpdateAndDeleteBook extends BaseAdapter {
     private LayoutInflater mLayoutInflater;
     Context mContext;
 
-    private String iconBaseUrl = "http://10.40.23.5/Android/Book_Pic/" ;
+    private String iconBaseUrl = "http://192.168.1.37/Android/Book_Pic/" ;
 
     public MyAdapterUpdateAndDeleteBook(Context context, List<Data> aList){
         mDatas = aList;
@@ -54,7 +54,7 @@ public class MyAdapterUpdateAndDeleteBook extends BaseAdapter {
             holder.tvDesc = (TextView)view.findViewById(R.id.desc);
             holder.tvId = (TextView)view.findViewById(R.id.id);
             holder.tvType = (TextView)view.findViewById(R.id.type);
-            holder.tvWritten = (TextView)view.findViewById(R.id.written);
+            holder.tvWritten = (TextView)view.findViewById(R.id.author);
             view.setTag(holder);
         }else {
             holder = (ViewHolder)view.getTag();

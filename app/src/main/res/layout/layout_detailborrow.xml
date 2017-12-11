@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_margin="5dp"
+    android:elevation="3dp"
+    card_view:cardBackgroundColor="#500c0c0c"
+    card_view:cardCornerRadius="4dp"
+    card_view:contentPadding="4dp"
+    card_view:layout_collapseParallaxMultiplier="1.0">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="274dp">
+
+        <ImageView
+            android:id="@+id/img_book"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/book1" />
+
+        <TextView
+            android:id="@+id/titleno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/img_book"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:text="ชื่อหนังสือที่ยืม : "
+            android:textColor="@color/cardview_light_background"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/titleno"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="29dp"
+            android:layout_marginRight="29dp"
+            android:text="@string/Book1"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/titleid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/titleno"
+            android:layout_alignStart="@+id/titleno"
+            android:layout_below="@+id/titleno"
+            android:layout_marginTop="20dp"
+            android:text="ไอดีหนังสือที่ยืม : "
+            android:textColor="@color/cardview_light_background"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/idbk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/titleid"
+            android:layout_alignBottom="@+id/titleid"
+            android:layout_toEndOf="@+id/titleid"
+            android:layout_toRightOf="@+id/titleid"
+            android:text="identifierxxxxxx"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/titlestartbor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/titleid"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="17dp"
+            android:text="วันที่เริ่มหนังสือ :"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/dateborrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/titlefinish"
+            android:layout_alignStart="@+id/titlefinish"
+            android:layout_below="@+id/titlefinish"
+            android:ems="10"
+            android:hint="06/06/2018"
+            android:inputType="date"
+            android:singleLine="false"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/titlefinish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/datecheckout"
+            android:layout_alignStart="@+id/datecheckout"
+            android:layout_below="@+id/img_book"
+            android:text="วันที่คืนหนังสือ :"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/datecheckout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/titlestartbor"
+            android:layout_alignStart="@+id/titlestartbor"
+            android:layout_below="@+id/titlestartbor"
+            android:ems="10"
+            android:hint="01/06/2018"
+            android:inputType="date"
+            android:singleLine="false"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/addDatebtn"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_alignEnd="@+id/titleno"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/titleno"
+            android:layout_marginBottom="12dp"
+            android:background="@android:color/holo_blue_dark"
+            android:text="ต่ออายุหนังสือ"
+            android:textAllCaps="false"
+            android:textColor="@color/colortext"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/days"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/addDatebtn"
+            android:layout_alignLeft="@+id/intNum"
+            android:layout_alignStart="@+id/intNum"
+            android:text="(5 วัน)"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView9"
+            android:layout_alignBottom="@+id/textView9"
+            android:layout_toEndOf="@+id/idbk"
+            android:layout_toRightOf="@+id/idbk"
+            android:text="ครั้ง"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/intNum"
+            android:layout_alignBottom="@+id/intNum"
+            android:layout_marginLeft="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_toEndOf="@+id/intNum"
+            android:layout_toRightOf="@+id/intNum"
+            android:text="1"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/intNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="จำนวน :"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="12sp"
+            android:layout_alignTop="@+id/addDatebtn"
+            android:layout_alignRight="@+id/dateborrow"
+            android:layout_alignEnd="@+id/dateborrow" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

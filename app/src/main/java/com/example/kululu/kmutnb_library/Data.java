@@ -10,14 +10,17 @@ package com.example.kululu.kmutnb_library;
         private String book_desc;  //สำหรับ Description
         private String book_written;      //สำหรับ Image
         private String book_type;
+        private String pic;
+        private float fine;
 
-
-    public Data(int id, String book_name, String book_desc, String book_written, String book_type) {
+    public Data(int id, String book_name, String book_desc, String book_written, String book_type, String book_img, float fine) {
         this.id = id;
         this.book_name = book_name;
         this.book_desc = book_desc;
         this.book_written = book_written;
         this.book_type = book_type;
+        this.pic = book_img;
+        this.fine = fine;
     }
 
     public String getBook_type() {
@@ -58,5 +61,21 @@ package com.example.kululu.kmutnb_library;
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getBook_img() {
+        return pic;
+    }
+
+    public void setBook_img(String book_img) {
+        this.pic = book_img;
+    }
+
+    public float getFine() {
+        return fine;
+    }
+
+    public void setFine(float fine) {
+        this.fine = fine;
     }
 }

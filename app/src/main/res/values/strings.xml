@@ -17,4 +17,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="webserver">192.168.1.35</string>
+    <string name="title_activity_my_account">MyAccountActivity</string>
 </resources>

@@ -2,14 +2,11 @@ package com.example.kululu.kmutnb_library;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,62 +16,69 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.batch.android.json.JSONException;
-import com.batch.android.json.JSONObject;
+import com.google.gson.Gson;
+import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
-public class CreateBookActivity extends AppCompatActivity {
-    EditText book_name, book_decs, book_written, book_type ;
+public class MyAccountActivity extends AppCompatActivity {
 
-    String url = "http://192.168.1.35/Android/createBook.php";
     private static final String TAG = "LogServer" ;
+    TextView number_id,name_id,bd_id,email_id,type_id;
+    String name,email;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_addbook);
-        book_name = (EditText) findViewById(R.id.name_book);
-        book_decs = (EditText) findViewById(R.id.detail_book);
-        book_type = (EditText) findViewById(R.id.type_book);
-        book_written = (EditText) findViewById(R.id.author_book);
+        setContentView(R.layout.layout_detailprofile);
+
+        Intent port_from_main =  getIntent();
+        name = port_from_main.getStringExtra("name");
+
+        email = port_from_main.getStringExtra("email");
+
+        number_id = (TextView)findViewById(R.id.noid);
+        name_id = (TextView)findViewById(R.id.nameid);
+        bd_id = (TextView)findViewById(R.id.bdid);
+        email_id = (TextView)findViewById(R.id.emid);
+        type_id = (TextView)findViewById(R.id.typeid);
+
+        viewAccount();
+
     }
 
-    public void onCreateBook(View view){
-        Log.d(TAG, String.valueOf(book_name));
-        String str_name = book_name.getText().toString();
-        String str_decs = book_decs.getText().toString();
-        String str_type = book_type.getText().toString();
-        String str_written = book_written.getText().toString();
-        requestCreateBook(str_name,str_decs,str_type,str_written);
-    }
-
-    private void requestCreateBook(final String bookName, final String bookDecs, final String bookType, final String bookWritten){
-
+    private void viewAccount(){
+        String url = "http://"+getResources().getString(R.string.webserver)+"/Android/searchAccount.php";
         final ProgressDialog pDialog = new ProgressDialog(this);
         pDialog.setMessage("Loading..");
         pDialog.show();
-        Log.d(TAG, "requestCreateBook: " + bookName + bookDecs);
         StringRequest stringRequest = new StringRequest(Request.Method.POST,url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
+                Log.d(TAG, "onResponse: "+ response);
                 try {
                     JSONObject result = new JSONObject(response);
                     int returnCode = result.getInt("code");
                     String returnMsg = result.getString("message");
-                    Log.d(TAG, String.valueOf(result));
-                    Toast.makeText(getBaseContext(),returnMsg,Toast.LENGTH_SHORT).show();
-                    if (returnCode == 1){
-                        Intent GoBack = new Intent(getBaseContext(),ManagerActivity.class);
-                        startActivity(GoBack);
+                    String returnType = result.getString("type");
+                    String returnName = result.getString("name");
+                    String returnEmail = result.getString("email");
+                    String returnId = result.getString("id");
+                    String returnDay = result.getString("birthday");
 
-                    }
+                    number_id.setText(returnId);
+                    name_id.setText(returnName);
+                    email_id.setText(returnEmail);
+                    bd_id.setText(returnDay);
+                    type_id.setText(returnType);
 
-
-                } catch (JSONException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 pDialog.hide();
@@ -92,10 +96,7 @@ public class CreateBookActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("book_name",bookName);
-                params.put("book_desc",bookDecs);
-                params.put("book_written",bookWritten);
-                params.put("book_type",bookType);
+                params.put("user_name",email);
                 return params;
             }
         };
@@ -104,7 +105,4 @@ public class CreateBookActivity extends AppCompatActivity {
         queue.add(stringRequest);
     }
 
-
-
 }
-

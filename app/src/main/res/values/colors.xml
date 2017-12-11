@@ -3,6 +3,8 @@
     <color name="colorPrimary">#151515</color>
     <color name="colorPrimaryDark">#4d4d4d</color>
     <color name="colorAccent">#151515</color>
-    <color name="colortext">#b6ffffff</color>
+    <color name="colortext">#ffffff</color>
     <color name="hint">#ffffff</color>
+    <color name="colorButtonGreen">#00ac6a</color>
+    <color name="colorButtonRed">#ac0000</color>
 </resources>

@@ -9,18 +9,22 @@
         android:src="@drawable/girl"
         android:layout_width="75dp"
         android:layout_height="75dp" />
+
     <TextView
+        android:id="@+id/nameStudent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="Suriya Ta-rue"
         android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:layout_marginTop="5dp"/>
+        android:textStyle="bold" />
+
     <TextView
+        android:id="@+id/emailStudent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="snsmek13@gmail.com"
-        android:textColor="#ffffff"/>
+        android:textColor="#ffffff" />
 
 
 </LinearLayout>

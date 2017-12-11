@@ -14,34 +14,34 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="224dp"
+        android:layout_height="268dp"
         android:orientation="vertical"
         android:padding="16dp">
 
         <Button
             android:id="@+id/btnupdate"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="50dp"
+            style="@android:style/Widget.Button"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@+id/btndelete"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/no3"
+            android:background="@android:color/holo_green_dark"
+            android:drawableLeft="@drawable/ic_update"
+            android:elevation="0dp"
+            android:onClick="OpenUpdate" />
+
+        <Button
+            android:id="@+id/btndelete"
+            style="@android:style/Widget.Button"
+            android:layout_width="40dp"
             android:layout_height="30dp"
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@+id/no3"
             android:layout_toRightOf="@+id/no3"
-            android:backgroundTint="#008b27"
-            android:drawableLeft="@drawable/ic_update" />
-
-        <Button
-            android:id="@+id/btndelete"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#9f0000"
+            android:background="@android:color/holo_red_dark"
             android:drawableLeft="@drawable/ic_del"
-            android:layout_alignBottom="@+id/btnupdate"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/btnupdate"
-            android:layout_toRightOf="@+id/written"
-            android:layout_toEndOf="@+id/written" />
+            android:onClick="OnDelete" />
 
         <ImageView
             android:id="@+id/img_book"
@@ -77,27 +77,14 @@
             android:textSize="10sp" />
 
         <TextView
-            android:id="@+id/desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/id"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginBottom="11dp"
-            android:layout_toEndOf="@+id/img_book"
-            android:layout_toRightOf="@+id/img_book"
-            android:text="@string/detailbook"
-            android:textColor="@color/colortext"
-            android:textSize="13dp" />
-
-        <TextView
             android:id="@+id/id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/img_book"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:text="id_book" />
+            android:layout_below="@+id/desc"
+            android:text="id_book"
+            android:textColor="@color/colortext" />
 
         <TextView
             android:id="@+id/No"
@@ -107,26 +94,42 @@
             android:layout_alignBottom="@+id/id"
             android:layout_toLeftOf="@+id/id"
             android:layout_toStartOf="@+id/id"
-            android:text="No." />
+            android:text="No."
+            android:textColor="@color/colortext" />
 
         <TextView
             android:id="@+id/no3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/No"
-            android:layout_alignBottom="@+id/No"
+            android:layout_below="@+id/desc"
             android:layout_toEndOf="@+id/img_book"
             android:layout_toRightOf="@+id/img_book"
-            android:text="ผู้แต่ง : " />
+            android:text="ผู้แต่ง : "
+            android:textColor="@color/colortext" />
 
         <TextView
-            android:id="@+id/written"
+            android:id="@+id/author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/img_book"
-            android:layout_toEndOf="@+id/no3"
-            android:layout_toRightOf="@+id/no3"
-            android:text="TextWritten" />
+            android:layout_alignBaseline="@+id/no3"
+            android:layout_alignBottom="@+id/no3"
+            android:layout_toEndOf="@+id/btnupdate"
+            android:layout_toRightOf="@+id/btnupdate"
+            android:text="TextWritten"
+            android:textColor="@color/colortext" />
+
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_below="@+id/type"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@+id/img_book"
+            android:layout_toRightOf="@+id/img_book"
+            android:text="@string/detailbook"
+            android:textColor="@color/colortext"
+            android:textSize="13dp" />
 
     </RelativeLayout>
 

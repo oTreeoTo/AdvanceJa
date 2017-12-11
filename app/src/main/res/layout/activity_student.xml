@@ -51,7 +51,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="หนังสือทั้งหมด"
-                        />
+                       />
 
                     <android.support.design.widget.TabItem
                         android:layout_width="wrap_content"
@@ -84,10 +84,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            app:headerLayout="@layout/headermanag"
+            app:headerLayout="@layout/header"
             app:itemIconTint="#313131"
             app:itemTextColor="#000000"
-            app:menu="@menu/navigation_menumanag">
+            app:menu="@menu/navigation_menu">
 
 
         </android.support.design.widget.NavigationView>

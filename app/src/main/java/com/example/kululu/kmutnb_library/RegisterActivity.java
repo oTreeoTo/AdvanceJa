@@ -30,7 +30,7 @@ import java.util.Map;
 public class RegisterActivity extends AppCompatActivity {
     EditText studentID, studentName, studentSurName, studentAge, studentEmail, studentPassword;
     TextView tv;
-    String url = "http://192.168.1.39/Android/register.php";
+    String url = "http://192.168.1.37/Android/register.php";
     private static final String TAG = "LogServer" ;
 
     @Override

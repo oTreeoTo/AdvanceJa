@@ -48,16 +48,6 @@
             android:textSize="8dp" />
 
         <TextView
-            android:id="@+id/desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/type"
-            android:layout_toRightOf="@+id/img_book"
-            android:text="@string/detailbook"
-            android:textColor="@color/colortext"
-            android:textSize="13dp" />
-
-        <TextView
             android:id="@+id/id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -90,7 +80,7 @@
             android:text="ผู้แต่ง : " />
 
         <TextView
-            android:id="@+id/written"
+            android:id="@+id/author"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/img_book"
